@@ -18,9 +18,63 @@ export EDITOR=vim + (Ctrl + x) + (Ctrl + e) 🡪 editing long commands in an edi
 
 Time Zone:
 dpkg-reconfigure tzdata
+cat /etc/timezone 🡪 Shows the system's timezone
 
 iptables:
 iptables -A INPUT -j LOG
 iptables -A FORWARD -j LOG
 iptables -L
 
+Check Open Port:
+sudo netstat -tulpn | grep LISTEN
+sudo ss -tulpn
+sudo lsof -i -P -n | grep LISTEN
+
+which bash 🡪 bash shell path
+man bash 🡪 general manual
+apropos bash 🡪 Locates commands by keyword lookup
+curl cheat.sh/bash
+
+su [username] 🡪 switching the shell to another user
+su – [username] 🡪 "-" gets an environment as if another user just logged in
+
+du -hs * 🡪 estimate file space usage
+
+alias 🡪 create alias for command 🡪 alias pd="pwd"
+
+export 🡪 makes a given variable available to all child sessions 🡪 export USER="Jane”
+
+env 🡪 returns a list of environment variables for the current user
+
+source 🡪 change env parameters, 
+source ~/.bash_profile
+source development.env
+$HOME
+
+history 🡪 get a history of commands
+!n 🡪 n is the command number 🡪 execute
+!! 🡪 execute last command
+
+less +F /etc/ssh/ssh_config 🡪 watch the file contents for changes 🡪 log
+
+stat [file] 🡪 display file or file system status
+stat -c '%A %a %n' [file] 🡪 file in octal form
+
+nslookup www.google.com
+dig google.com
+host www.google.com 8.8.8.8
+
+nc -zv [remote host IP] [port] 🡪 check port
+
+ps aux 🡪 Lists all running processes
+/proc/<pid>/maps 🡪 Accesses memory mappings for a specific process
+/proc/<pid>/fd 🡪 Provides information about file descriptors for a specific process
+
+netstat -rn 🡪 Displays routing tables
+
+cat /var/log/auth.log 🡪 user login history
+
+cat ~/.bash_history → command history for each user
+
+lsmod 🡪 Lists loaded kernel modules
+dmesg 🡪 Displays kernel ring buffer messages, uncovering hardware or driver events
