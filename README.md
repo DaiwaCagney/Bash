@@ -74,7 +74,14 @@ netstat -rn 🡪 Displays routing tables
 
 cat /var/log/auth.log 🡪 user login history
 
-cat ~/.bash_history → command history for each user
+cat ~/.bash_history 🡪 command history for each user
 
 lsmod 🡪 Lists loaded kernel modules
 dmesg 🡪 Displays kernel ring buffer messages, uncovering hardware or driver events
+
+time [options] command [arguments] 🡪 measuring time
+
+/usr/bin/vmhgfs-fuse .host:/foo /tmp/foo -o subtype=vmhgfs-fuse,allow_other 🡪 Mounts the share named foo to /tmp/foo
+
+fuser -m [Directory] 🡪 find out which processes are accessing the file system
+
