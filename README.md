@@ -24,6 +24,7 @@ iptables:
 iptables -A INPUT -j LOG
 iptables -A FORWARD -j LOG
 iptables -L
+iptables -t nat -L 🡪 Check NAT table
 
 Check Open Port:
 sudo netstat -tulpn | grep LISTEN
