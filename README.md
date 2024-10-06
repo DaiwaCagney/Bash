@@ -86,3 +86,15 @@ time [options] command [arguments] 🡪 measuring time
 
 fuser -m [Directory] 🡪 find out which processes are accessing the file system
 
+<(some command) 🡪 The output of a command can be treated like a file
+diff /etc/hosts <(ssh somehost cat /etc/hosts)
+
+find -name myFile > myFileLocation.txt 2> myFileLocation-Error.txt
+some-command >logfile 2>&1
+
+nohup myscript.sh >myscript.log 2>&1 </dev/null &
+</dev/null 🡪 don't expect input
+
+when variables and filenames include whitespace 🡪 -0 or -print0
+To iterate on filenames containing whitespace in a for loop 🡪 IFS=$'\n'
+Internal Field Separator (IFS) 🡪 space, tab, and newline
