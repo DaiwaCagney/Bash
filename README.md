@@ -92,6 +92,13 @@ diff /etc/hosts <(ssh somehost cat /etc/hosts)
 find -name myFile > myFileLocation.txt 2> myFileLocation-Error.txt
 some-command >logfile 2>&1
 
+strings
+file
+xxd
+objdump
+nm
+gdb
+
 nohup myscript.sh >myscript.log 2>&1 </dev/null &
 </dev/null 🡪 don't expect input
 
