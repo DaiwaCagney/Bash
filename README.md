@@ -1,6 +1,6 @@
 # Bash
 
-Move Cursor:
+#Move Cursor:
 Ctrl + w 🡪 Cut the Word before the cursor to the clipboard
 Ctrl + u 🡪 Cut the Line before the cursor to the clipboard
 Ctrl + k 🡪 Cut the Line after the cursor to the clipboard
@@ -16,21 +16,22 @@ set -o emacs 🡪 original
 
 export EDITOR=vim + (Ctrl + x) + (Ctrl + e) 🡪 editing long commands in an editor
 
-Time Zone:
+#Time Zone:
 dpkg-reconfigure tzdata
 cat /etc/timezone 🡪 Shows the system's timezone
 
-iptables:
+#iptables:
 iptables -A INPUT -j LOG
 iptables -A FORWARD -j LOG
 iptables -L
 iptables -t nat -L 🡪 Check NAT table
 
-Check Open Port:
+#Check Open Port:
 sudo netstat -tulpn | grep LISTEN
 sudo ss -tulpn
 sudo lsof -i -P -n | grep LISTEN
 
+#Other
 which bash 🡪 bash shell path
 man bash 🡪 general manual
 apropos bash 🡪 Locates commands by keyword lookup
@@ -99,7 +100,14 @@ when variables and filenames include whitespace 🡪 -0 or -print0
 To iterate on filenames containing whitespace in a for loop 🡪 IFS=$'\n'
 Internal Field Separator (IFS) 🡪 space, tab, and newline
 
-Debug:
+strings
+file
+xxd
+objdump
+nm
+gdb
+
+#Debug:
 set -x # enables debugging mode
 set -v # logs raw input, including unexpanded variables and comments
 set -u # detect unset variable usages
@@ -112,9 +120,9 @@ trap "echo 'error: Script failed: '" ERR
 if [ $? -ne 0 ]; then
     echo "Error"
 fi
-# 0 success, other error
+0 success, other error
 
-Heredoc:
+#Heredoc:
 cat << EOF
 The current working directory is: $PWD
 You are logged in as: $(whoami)
@@ -124,8 +132,8 @@ cat <<- "EOF"
 The current working directory is: $PWD
 You are logged in as: $(whoami)
 EOF
-#The current working directory is: $PWD
-#You are logged in as: $(whoami)
+The current working directory is: $PWD
+You are logged in as: $(whoami)
 
 cat << EOF > file.txt
 The current working directory is: $PWD
@@ -136,8 +144,8 @@ cat <<'EOF' |  sed 's/l/e/g'
 Hello
 World
 EOF
-#Heeeo
-#Wored
+Heeeo
+Wored
 
 cat <<'EOF' |  sed 's/l/e/g' > file.txt
 Hello
@@ -149,10 +157,10 @@ echo "The current local working directory is: $PWD"
 echo "The current remote working directory is: \$PWD"
 EOF
 
-Job Control:
-# Ctrl + C 🡪 stop the command
-# Ctrl + Z 🡪 pause the current job
-# Ctrl + D 🡪 logout 🡪 exit the shell
+#Job Control:
+Ctrl + C 🡪 stop the command
+Ctrl + Z 🡪 pause the current job
+Ctrl + D 🡪 logout 🡪 exit the shell
 jobs  # list stopped jobs
 fg # resume in the Foreground
 fg %1 # resume the number 1 job, otherwise last one
@@ -163,7 +171,7 @@ kill %1 # kill a job we don’t need
 nohup # run a command immune to hangups
 nohup script.sh > script.log 2>&1 &
 
-Return And Exit:
+#Return And Exit:
 retfunc() {
     echo "this is retfunc()"
     return 1
@@ -179,7 +187,7 @@ echo "Still Here"
 exitfunc
 echo "Never see this"
 
-xargs:
+#xargs:
 find . -name '*.py' | xargs grep some_function
 find . -name '*.py' -print0 | xargs -0 grep some_function # filenames contain spaces or special characters
 cat hosts | xargs -I{} ssh root@{} hostname # replacing {} with the actual hostname
@@ -192,10 +200,3 @@ echo $TestString | xargs -dX -n2
 ls *.jpg | xargs -n1 -I{} cp {} /data/images
 
 find . -type f -name "*.jpg" -print | xargs tar -czvf images.tar.gz
-
-strings
-file
-xxd
-objdump
-nm
-gdb
