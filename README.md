@@ -99,6 +99,100 @@ when variables and filenames include whitespace 🡪 -0 or -print0
 To iterate on filenames containing whitespace in a for loop 🡪 IFS=$'\n'
 Internal Field Separator (IFS) 🡪 space, tab, and newline
 
+Debug:
+set -x # enables debugging mode
+set -v # logs raw input, including unexpanded variables and comments
+set -u # detect unset variable usages
+set -e # cause Bash to exit with an error if any command in the script fails
+set -o pipefail # abort on errors within pipes
+
+set -euo pipefail
+trap "echo 'error: Script failed: '" ERR
+
+if [ $? -ne 0 ]; then
+    echo "Error"
+fi
+# 0 success, other error
+
+Heredoc:
+cat << EOF
+The current working directory is: $PWD
+You are logged in as: $(whoami)
+EOF
+
+cat <<- "EOF"
+The current working directory is: $PWD
+You are logged in as: $(whoami)
+EOF
+#The current working directory is: $PWD
+#You are logged in as: $(whoami)
+
+cat << EOF > file.txt
+The current working directory is: $PWD
+You are logged in as: $(whoami)
+EOF
+
+cat <<'EOF' |  sed 's/l/e/g'
+Hello
+World
+EOF
+#Heeeo
+#Wored
+
+cat <<'EOF' |  sed 's/l/e/g' > file.txt
+Hello
+World
+EOF
+
+ssh -T user@host.com << EOF
+echo "The current local working directory is: $PWD"
+echo "The current remote working directory is: \$PWD"
+EOF
+
+Job Control:
+# Ctrl + C 🡪 stop the command
+# Ctrl + Z 🡪 pause the current job
+# Ctrl + D 🡪 logout 🡪 exit the shell
+jobs  # list stopped jobs
+fg # resume in the Foreground
+fg %1 # resume the number 1 job, otherwise last one
+bg # resume in the Background
+find . -name "*.java" & # & 🡪 start a job in Background
+disown %2 # keeps running in the background even after the shell exits
+kill %1 # kill a job we don’t need
+nohup # run a command immune to hangups
+nohup script.sh > script.log 2>&1 &
+
+Return And Exit:
+retfunc() {
+    echo "this is retfunc()"
+    return 1
+}
+
+exitfunc() {
+    echo "this is exitfunc()"
+    exit 1
+}
+
+retfunc
+echo "Still Here"
+exitfunc
+echo "Never see this"
+
+xargs:
+find . -name '*.py' | xargs grep some_function
+find . -name '*.py' -print0 | xargs -0 grep some_function # filenames contain spaces or special characters
+cat hosts | xargs -I{} ssh root@{} hostname # replacing {} with the actual hostname
+echo {a..z} | xargs -n3
+
+TestString="nameXnameXnameXname"
+echo $TestString | xargs -dX
+echo $TestString | xargs -dX -n2
+
+ls *.jpg | xargs -n1 -I{} cp {} /data/images
+
+find . -type f -name "*.jpg" -print | xargs tar -czvf images.tar.gz
+
 strings
 file
 xxd
