@@ -15,6 +15,9 @@ Ctrl + a 🡪 Go to the beginning of the line (Home)
 
 Ctrl + e 🡪 Go to the End of the line (End)
 
+# Export Path:
+export PATH=$PATH:[Path to add]
+
 # Time Zone:
 dpkg-reconfigure tzdata
 
