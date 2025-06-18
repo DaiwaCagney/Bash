@@ -23,7 +23,7 @@ dpkg-reconfigure tzdata
 
 cat /etc/timezone 🡪 Shows the system's timezone
 
-# Route:
+# Route / Firewall:
 iptables -A INPUT -j LOG
 
 iptables -A FORWARD -j LOG
@@ -34,8 +34,14 @@ iptables -t nat -L 🡪 Check NAT table
 
 netstat -rn 🡪 Displays routing tables
 
+service firewalld status
+
+service ufw status
+
 # Check Open Port:
 sudo netstat -tulpn | grep LISTEN
+
+netstat -tulnp | grep [Port]
 
 sudo ss -tulpn
 
