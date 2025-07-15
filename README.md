@@ -100,63 +100,6 @@ fi
 
 0 success, other error
 
-# Heredoc:
-cat << EOF
-
-The current working directory is: $PWD
-
-You are logged in as: $(whoami)
-
-EOF
-
-cat <<- "EOF"
-
-The current working directory is: $PWD
-
-You are logged in as: $(whoami)
-
-EOF
-
-The current working directory is: $PWD
-
-You are logged in as: $(whoami)
-
-cat << EOF > file.txt
-
-The current working directory is: $PWD
-
-You are logged in as: $(whoami)
-
-EOF
-
-cat <<'EOF' |  sed 's/l/e/g'
-
-Hello
-
-World
-
-EOF
-
-Heeeo
-
-Wored
-
-cat <<'EOF' |  sed 's/l/e/g' > file.txt
-
-Hello
-
-World
-
-EOF
-
-ssh -T user@host.com << EOF
-
-echo "The current local working directory is: $PWD"
-
-echo "The current remote working directory is: \$PWD"
-
-EOF
-
 # Job Control:
 Ctrl + C 🡪 stop the command
 
@@ -181,31 +124,6 @@ kill %1 # kill a job we don’t need
 nohup # run a command immune to hangups
 
 nohup script.sh > script.log 2>&1 &
-
-# Return And Exit:
-retfunc() {
-
-    echo "this is retfunc()"
-    
-    return 1
-    
-}
-
-exitfunc() {
-
-    echo "this is exitfunc()"
-    
-    exit 1
-    
-}
-
-retfunc
-
-echo "Still Here"
-
-exitfunc
-
-echo "Never see this"
 
 # xargs:
 find . -name '*.py' | xargs grep some_function
