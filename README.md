@@ -76,6 +76,7 @@ host www.google.com 8.8.8.8
 
 # Netcat
 nc -zv [remote host IP] [port] 🡪 check port connectivity
+
 nc -nlvp [port] --> listen
 
 # Debug:
