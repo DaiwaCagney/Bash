@@ -74,8 +74,9 @@ dig google.com
 
 host www.google.com 8.8.8.8
 
-# Check Connectivity
-nc -zv [remote host IP] [port] 🡪 check port
+# Netcat
+nc -zv [remote host IP] [port] 🡪 check port connectivity
+nc -nlvp [port] --> listen
 
 # Debug:
 set -x # enables debugging mode
