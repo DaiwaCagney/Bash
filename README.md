@@ -47,19 +47,6 @@ sudo ss -tulpn
 
 sudo lsof -i -P -n | grep LISTEN
 
-# Variable:
-export 🡪 makes a given variable available to all child sessions 🡪 export USER="Jane”
-
-env 🡪 returns a list of environment variables for the current user
-
-source 🡪 change env parameters, 
-
-source ~/.bash_profile
-
-source development.env
-
-$HOME
-
 # History:
 history 🡪 get a history of commands
 
@@ -80,23 +67,9 @@ nc -zv [remote host IP] [port] 🡪 check port connectivity
 nc -nlvp [port] --> listen
 
 # Debug:
-set -x # enables debugging mode
-
-set -v # logs raw input, including unexpanded variables and comments
-
-set -u # detect unset variable usages
-
-set -e # cause Bash to exit with an error if any command in the script fails
-
-set -o pipefail # abort on errors within pipes
-
-set -euo pipefail
-
-trap "echo 'error: Script failed: '" ERR
-
 if [ $? -ne 0 ]; then
 
-    echo "Error"
+{handling error}
     
 fi
 
@@ -123,58 +96,24 @@ disown %2 # keeps running in the background even after the shell exits
 
 kill %1 # kill a job we don’t need
 
-nohup # run a command immune to hangups
-
-nohup script.sh > script.log 2>&1 &
-
-# xargs:
-find . -name '*.py' | xargs grep some_function
-
-find . -name '*.py' -print0 | xargs -0 grep some_function # filenames contain spaces or special characters
-
-cat hosts | xargs -I{} ssh root@{} hostname # replacing {} with the actual hostname
-
-echo {a..z} | xargs -n3
-
-TestString="nameXnameXnameXname"
-
-echo $TestString | xargs -dX
-
-echo $TestString | xargs -dX -n2
-
-ls *.jpg | xargs -n1 -I{} cp {} /data/images
-
-find . -type f -name "*.jpg" -print | xargs tar -czvf images.tar.gz
-
+nohup script.sh > script.log 2>&1 & # nohup run a command immune to hangups
 
 # Other
-which bash 🡪 bash shell path
-
 su [username] 🡪 switching the shell to another user
 
 du -hs * 🡪 estimate file space usage
 
-alias 🡪 create alias for command 🡪 alias pd="pwd"
-
 less +F /etc/ssh/ssh_config 🡪 watch the file contents for changes 🡪 log
 
-stat [file] 🡪 display file or file system status
-
-stat -c '%A %a %n' [file] 🡪 file in octal form
+tail -f /var/log/messages
 
 ps aux 🡪 Lists all running processes
-
-/proc/<pid>/maps 🡪 Accesses memory mappings for a specific process
-
-/proc/<pid>/fd 🡪 Provides information about file descriptors for a specific process
 
 cat /var/log/auth.log 🡪 user login history
 
 cat ~/.bash_history 🡪 command history for each user
 
 /usr/bin/vmhgfs-fuse .host:/foo /tmp/foo -o subtype=vmhgfs-fuse,allow_other 🡪 Mounts the share named foo to /tmp/foo
-
-find -name myFile > myFileLocation.txt 2> myFileLocation-Error.txt
 
 some-command > logfile 2>&1
 
