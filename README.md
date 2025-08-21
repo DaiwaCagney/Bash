@@ -18,11 +18,6 @@ Ctrl + e 🡪 Go to the End of the line (End)
 # Export Path:
 export PATH=$PATH:[Path to add]
 
-# Time Zone:
-dpkg-reconfigure tzdata
-
-cat /etc/timezone 🡪 Shows the system's timezone
-
 # Route / Firewall:
 iptables -A INPUT -j LOG
 
@@ -54,12 +49,9 @@ history 🡪 get a history of commands
 
 !! 🡪 execute last command
 
-# DNS
-nslookup www.google.com
+cat /var/log/auth.log 🡪 user login history
 
-dig google.com
-
-host www.google.com 8.8.8.8
+cat ~/.bash_history 🡪 command history for each user
 
 # Netcat
 nc -zv [remote host IP] [port] 🡪 check port connectivity
@@ -98,31 +90,20 @@ kill %1 # kill a job we don’t need
 
 nohup script.sh > script.log 2>&1 & # nohup run a command immune to hangups
 
-# Other
-su [username] 🡪 switching the shell to another user
-
-du -hs * 🡪 estimate file space usage
-
+# View File
 less +F /etc/ssh/ssh_config 🡪 watch the file contents for changes 🡪 log
 
 tail -f /var/log/messages
 
+# Other
+du -hs * 🡪 estimate file space usage
+
 ps aux 🡪 Lists all running processes
-
-cat /var/log/auth.log 🡪 user login history
-
-cat ~/.bash_history 🡪 command history for each user
 
 /usr/bin/vmhgfs-fuse .host:/foo /tmp/foo -o subtype=vmhgfs-fuse,allow_other 🡪 Mounts the share named foo to /tmp/foo
 
-some-command > logfile 2>&1
-
-nohup myscript.sh >myscript.log 2>&1 </dev/null &
-
-</dev/null 🡪 don't expect input
+nohup myscript.sh >myscript.log 2>&1 </dev/null & # </dev/null 🡪 don't expect input
 
 when variables and filenames include whitespace 🡪 -0 or -print0
 
-To iterate on filenames containing whitespace in a for loop 🡪 IFS=$'\n'
-
-Internal Field Separator (IFS) 🡪 space, tab, and newline
+Internal Field Separator (IFS) 🡪 space, tab, and newline, To iterate on filenames containing whitespace in a for loop 🡪 IFS=$'\n'
