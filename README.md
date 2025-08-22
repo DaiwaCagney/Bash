@@ -95,6 +95,9 @@ less +F /etc/ssh/ssh_config 🡪 watch the file contents for changes 🡪 log
 
 tail -f /var/log/messages
 
+# Create File for Testing
+fallocate -l 1337MB filename
+
 # Other
 du -hs * 🡪 estimate file space usage
 
