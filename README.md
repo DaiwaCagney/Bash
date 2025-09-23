@@ -53,6 +53,8 @@ cat /var/log/auth.log 🡪 user login history
 
 cat ~/.bash_history 🡪 command history for each user
 
+cat /etc/passwd 🡪 find all users created
+
 # Netcat
 nc -zv [remote host IP] [port] 🡪 check port connectivity
 
@@ -102,6 +104,10 @@ fallocate -l 1337MB filename
 du -hs * 🡪 estimate file space usage
 
 ps aux 🡪 Lists all running processes
+
+ls -alh
+
+find / -perm -4000 -type f 2>/dev/null 🡪 find executable file user can use
 
 /usr/bin/vmhgfs-fuse .host:/foo /tmp/foo -o subtype=vmhgfs-fuse,allow_other 🡪 Mounts the share named foo to /tmp/foo
 
