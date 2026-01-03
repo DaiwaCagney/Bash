@@ -118,3 +118,7 @@ nohup myscript.sh >myscript.log 2>&1 </dev/null & # </dev/null 🡪 don't expect
 when variables and filenames include whitespace 🡪 -0 or -print0
 
 Internal Field Separator (IFS) 🡪 space, tab, and newline, To iterate on filenames containing whitespace in a for loop 🡪 IFS=$'\n'
+
+date -d @1704300000
+
+date -d @1704300000 +"%Y-%m-%d %H:%M:%S"
