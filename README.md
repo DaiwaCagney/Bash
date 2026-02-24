@@ -9,8 +9,8 @@
 - Ctrl + a - Go to the beginning of the line (Home)
 - Ctrl + e - Go to the End of the line (End)
 
-## Export Path:
-export PATH=$PATH:[Path to add]
+## Export Path
+'export PATH=$PATH:[Path to add]'
 
 ## Route / Firewall
 iptables -A INPUT -j LOG
