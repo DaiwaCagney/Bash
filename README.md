@@ -114,9 +114,13 @@ fi
 
 ## Back Up
 `tar -cvzf backup.tar.gz /directory` - gzip (moderate compression, fast)
+
 `tar -cvjf backup.tar.bz2 /directory` - bzip2 (better compression, slower)
+
 `tar -cvJf backup.tar.xz /directory` - xz (best compression, slowest)
+
 `rsync -avz /home/user /backups/home_full/` - Full local backup
+
 `rsync -avz -e ssh user@remote_host:/home/user /local/backups/` - Backup from remote server to local
 
 ---
@@ -145,8 +149,8 @@ fi
 
 ## Notes
 
-when variables and filenames include whitespace # -0 or -print0
+when variables and filenames include whitespace 🡪 -0 or -print0
 
-Internal Field Separator (IFS) # space, tab, and newline, To iterate on filenames containing whitespace in a for loop 🡪 IFS=$'\n'
+Internal Field Separator (IFS) 🡪 space, tab, and newline, To iterate on filenames containing whitespace in a for loop 🡪 IFS=$'\n'
 
 ---
