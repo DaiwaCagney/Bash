@@ -10,7 +10,7 @@
 - Ctrl + e - Go to the End of the line (End)
 
 ## Export Path
-'export PATH=$PATH:[Path to add]'
+`export PATH=$PATH:[Path to add]`
 
 ## Route / Firewall
 iptables -A INPUT -j LOG
