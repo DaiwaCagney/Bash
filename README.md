@@ -88,7 +88,7 @@ fi
 
 `bg` - resume in the Background
 
-`find . -name "*.java" &` - & start a job in Background
+`find . -name "*.java" &` - & 🡪 start a job in Background
 
 `disown %2` - keeps running in the background even after the shell exits
 
@@ -143,7 +143,7 @@ fi
 
 `/usr/bin/vmhgfs-fuse .host:/foo /tmp/foo -o subtype=vmhgfs-fuse,allow_other` - Mounts the share named foo to /tmp/foo
 
-`nohup myscript.sh >myscript.log 2>&1 </dev/null & # </dev/null` - don't expect input
+`nohup myscript.sh >myscript.log 2>&1 </dev/null &` - </dev/null 🡪 don't expect input
 
 ---
 
