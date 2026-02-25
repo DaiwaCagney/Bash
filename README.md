@@ -123,12 +123,49 @@ fi
 
 `rsync -avz -e ssh user@remote_host:/home/user /local/backups/` - Backup from remote server to local
 
+`tar -cvf archive.tar file1 file2 directory` - Create a tarball
+
+`tar -xvf archive.tar` - Extract a tarball
+
+`tar -czvf archive.tar.gz directory` - Create a tarball with gzip compression
+
+`tar -xzvf archive.tar.gz` - Extract a tarball with gzip compression
+
+`unzip file −d destination` - Extract a zip file
+
 ---
 
 ## Date
 `date -d @1704300000`
 
 `date -d @1704300000 +"%Y-%m-%d %H:%M:%S"`
+
+---
+
+## Digital Forensic
+`strings` - Display printable strings in files
+
+`file` - Determine type of file
+
+`xxd` - Make a hexdump
+
+`xxd -r` - Reverse hexdump
+
+`objdump` - Display information from object file
+
+`objdump -d -S` - Display assembler contents
+
+`nm` - List symbols in file
+
+`gdb` - GNU debugger
+
+`losetup` - Set up and control loop devices
+
+`losetup /dev/loop0 example.img` - Set up a loop device
+
+`mount /dev/loop0 /home/you/dir` - Mount the loop device
+
+`affuse` - Filesystem in Userspace
 
 ---
 
