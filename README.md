@@ -31,6 +31,16 @@
 
 `service ufw status`
 
+`netstat -rnv` - Gateway
+
+`systemctl status iptables.service`
+
+`systemctl status firewalld`
+
+`systemctl stop firewalld`
+
+`systemctl disable firewalld`
+
 ---
 
 ## Check Open Port:
@@ -51,11 +61,7 @@
 
 `!!` - execute last command
 
-`cat /var/log/auth.log` - user login history
-
 `cat ~/.bash_history` - command history for each user
-
-`cat /etc/passwd` - find all users created
 
 ---
 
@@ -63,6 +69,8 @@
 `nc -zv [remote host IP] [port]` - check port connectivity
 
 `nc -nlvp [port]` - listen
+
+---
 
 ## Debug
 ```
@@ -142,6 +150,63 @@ fi
 
 ---
 
+## Find File
+`find` - Search for files in a directory hierarchy
+
+`find /path/to/search -type f -name "*.txt"` - Find all .txt files in a directory
+
+`find / -perm -4000 -type f 2>/dev/null` - find executable file user can use
+
+---
+
+## DNS Config
+`cat /etc/hosts`
+
+`cat /etc/resolv.conf`
+
+`cat /etc/nsswitch.conf`
+
+---
+
+## Process
+`ps -ef | grep {process}`
+
+`ps -ef | more`
+
+`ps aux` - Lists all running processes
+
+`sudo systemctl list-unit-files --type=service --state=enabled` # List all active services
+
+---
+
+## SSH
+`cat /etc/ssh/sshd_conf`
+
+`ssh -p {port} -l {user} {ip}`
+
+---
+
+## Access Log
+`cat /var/log/auth.log` - user login history
+
+`tail -f /var/log/secure`
+
+---
+
+## ls
+`ls -alh`
+
+`ls -ltr`
+
+---
+
+## User
+`cat /etc/passwd` - find all users created
+
+`id {username}`
+
+---
+
 ## Digital Forensic
 `strings` - Display printable strings in files
 
@@ -167,16 +232,20 @@ fi
 
 `affuse` - Filesystem in Userspace
 
+`lsblk` - List block devices
+
+`fdisk -l` - Partition table manipulator
+
+`cut -d ‘ ‘ -f 1,3,5 file.txt` - Cut out fields from a file
+
+`ls /dev/sd*` - List all hard drives
+
+`cat /proc/partitions`
+
 ---
 
 ## Other
 `du -hs *` - estimate file space usage
-
-`ps aux` - Lists all running processes
-
-`ls -alh`
-
-`find / -perm -4000 -type f 2>/dev/null` - find executable file user can use
 
 `/usr/bin/vmhgfs-fuse .host:/foo /tmp/foo -o subtype=vmhgfs-fuse,allow_other` - Mounts the share named foo to /tmp/foo
 
