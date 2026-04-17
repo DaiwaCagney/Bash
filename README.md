@@ -247,6 +247,8 @@ fi
 ## Other
 `du -hs *` - estimate file space usage
 
+`df -h`
+
 `/usr/bin/vmhgfs-fuse .host:/foo /tmp/foo -o subtype=vmhgfs-fuse,allow_other` - Mounts the share named foo to /tmp/foo
 
 `nohup myscript.sh >myscript.log 2>&1 </dev/null &` - </dev/null 🡪 don't expect input
