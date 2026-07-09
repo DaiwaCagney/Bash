@@ -17,6 +17,8 @@
 ---
 
 ## Route / Firewall
+`ip link` - MAC address
+
 `iptables -A INPUT -j LOG`
 
 `iptables -A FORWARD -j LOG`
