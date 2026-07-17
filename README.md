@@ -255,6 +255,8 @@ fi
 
 `nohup myscript.sh >myscript.log 2>&1 </dev/null &` - </dev/null 🡪 don't expect input
 
+`tcpdump -A` check the payload
+
 ---
 
 ## Notes
