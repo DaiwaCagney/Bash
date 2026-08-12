@@ -33,6 +33,8 @@
 
 `firewall-cmd --list-all` - Check Firewall Rules
 
+`firewall-cmd --list-all-zones`
+
 `service ufw status`
 
 `netstat -rnv` - Gateway
