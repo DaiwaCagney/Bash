@@ -23,13 +23,15 @@
 
 `iptables -A FORWARD -j LOG`
 
-`iptables -L`
+`iptables -L` - Check Firewall Rules
 
 `iptables -t nat -L` - Check NAT table
 
 `netstat -rn` - Displays routing tables
 
 `service firewalld status`
+
+`firewall-cmd --list-all` - Check Firewall Rules
 
 `service ufw status`
 
