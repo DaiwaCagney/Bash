@@ -250,6 +250,29 @@ fi
 
 ---
 
+## LVM
+`lsblk -f` - Identify the available disks and their file systems
+
+`pvcreate <device>`
+
+`vgcreate <vg_name> <device>`
+
+`lvcreate -n <lv_name> -l 100%FREE <vg_name>`
+
+`mkfs.<fs_type> /dev/<vg_name>/<lv_name>`
+
+`mkdir -p <mount_point>`
+
+`mount /dev/<vg_name>/<lv_name> <mount_point>`
+
+`echo '/dev/<vg_name>/<lv_name> <mount_point> <fs_type> defaults 0 0' >> /etc/fstab`
+
+`mount -a`
+
+`df -h <mount_point>`
+
+---
+
 ## Other
 `du -hs *` - estimate file space usage
 
