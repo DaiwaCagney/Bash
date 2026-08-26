@@ -35,6 +35,10 @@
 
 `firewall-cmd --list-all-zones`
 
+`firewall-cmd --get-active-zones`
+
+`firewall-cmd --reload`
+
 `service ufw status`
 
 `netstat -rnv` - Gateway
